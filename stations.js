@@ -30,8 +30,8 @@ function add_stn(stn, select) {
 
 window.onload = function build_select() {
   for(var stn in stns) {
-    var added = add_stn(stn, 'fr_stn');
-    var added = add_stn(stn, 'to_stn');
+    var fradd = add_stn(stn, 'fr_stn');
+    var toadd = add_stn(stn, 'to_stn');
   }
 }
 
@@ -45,10 +45,6 @@ function pad(number){
     number = "0" + number;
   }
   return number;
-}
-
-function add_mins(date, minutes) {
-    return new Date(date.getTime() + minutes*60000);
 }
 
 function show_link () {
@@ -80,7 +76,6 @@ function show_link () {
 
   var url;
   if( navigator.userAgent.match(/Mobile/i) ){
-      // http://m.nationalrail.co.uk/pj/plan/LUT/STP/291114/1300/dep
       url = 'http://m.nationalrail.co.uk/pj/plan/' + frto + '/' + today + '/' + time + '/dep';
   } else {
       url = 'http://ojp.nationalrail.co.uk/service/timesandfares/' + frto + '/today/' + time + '/dep';
