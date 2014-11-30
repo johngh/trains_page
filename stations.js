@@ -19,19 +19,19 @@ var stns = {
   "CTK":"City Thameslink"
 };
 
-function add_stn(stn, select) {
+function add_stn(stn, dir, select) {
   // if (stns.hasOwnProperty(stn)) {
   var option = document.createElement("option");
   option.value = stn;
-  option.text = stns[stn];
+  option.text = dir + ' ' + stns[stn];
   var sel_obj = document.getElementById(select);
   sel_obj.add(option, sel_obj[-1]);
 }
 
 window.onload = function build_select() {
   for(var stn in stns) {
-    var fradd = add_stn(stn, 'fr_stn');
-    var toadd = add_stn(stn, 'to_stn');
+    var fradd = add_stn(stn, 'From', 'fr_stn');
+    var toadd = add_stn(stn, 'To', 'to_stn');
   }
 }
 
@@ -85,4 +85,5 @@ function show_link () {
   window.location.href = url;
 
 }
+// document.getElementById("timetable").bgcolor="#1a1a7a";
 
